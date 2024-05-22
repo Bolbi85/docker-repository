@@ -3,7 +3,9 @@ pipeline {
     dockerimagename = "bolbi85/react-app"
     dockerImage = ""
   }
-  agent any
+  
+  agent agentkub
+  
   stages {
     stage('Checkout Source') {
       steps {
