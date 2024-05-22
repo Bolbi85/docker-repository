@@ -4,7 +4,7 @@ function App() {
   return (
     <div>
       <h1>Hello, wereld!</h1>
-      <p>Dit is een voorbeeld van een React.js-bestand gegenereerd door ChatGPT.</p>
+      <p>Dit is een voorbeeld van Dogukan Kocer.</p>
     </div>
   );
 }
