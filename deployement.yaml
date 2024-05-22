@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment # De naam van de Kubernetes Deployment in de Kubernetes cluster
+  labels:
+    app: react-app
+spec:
+  replicas: 2 # Het aantal pods dat moet worden gemaakt in de Kubernetes cluster voor de React.js applicatiecontainer
+  selector:
+    matchLabels:
+      app: react-app
+  template:
+    metadata:
+      labels:
+        app: react-app
+    spec:
+      containers:
+      - name: react-app # De naam van de React.js applicatiecontainer
+        image: bravinwasike/react-app:latest # De Docker-image voor het bouwen van de React.js applicatiecontainer
+        ports:
+        - containerPort: 3000 # De poort voor de React.js applicatiecontainer
