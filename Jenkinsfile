@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/bolbi85/jenkins-kubernetes-deployment.git'
+        git 'https://github.com/Bolbi85/docker-kubernetes.git'
       }
     }
     stage('Build image') {
@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Pushing Image') {
       environment {
-          registryCredential = 'dockerhub-credentials'
+          registryCredential = 'docker-registry'
            }
       steps{
         script {
