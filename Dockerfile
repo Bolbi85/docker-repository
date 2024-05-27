@@ -2,10 +2,10 @@
 FROM nginx:latest
 
 # Verwijder de standaard index.html van nginx
-RUN rm /usr/share/nginx/html/index.html
+RUN mkdir -p /home/web
 
 # Kopieer uw eigen index.html naar de juiste locatie
-COPY ./index.html /usr/share/nginx/html/index.html
+COPY ./index.html
 
 # Exposeer poort 80
 EXPOSE 80
