@@ -5,7 +5,7 @@ FROM nginx:latest
 RUN mkdir -p /home/web
 
 # Kopieer uw eigen index.html naar de juiste locatie
-COPY ./index.html
+COPY . /index.html
 
 # Start nginx in de voorgrond
 CMD ["nginx", "-g", "daemon off;"]
