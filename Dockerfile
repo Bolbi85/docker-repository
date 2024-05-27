@@ -5,7 +5,7 @@ FROM nginx:latest
 RUN rm /usr/share/nginx/html/index.html
 
 # Kopieer uw eigen index.html naar de juiste locatie
-COPY . index.html /usr/share/nginx/html/index.html
+COPY ./index.html /usr/share/nginx/html/index.html
 
 # Exposeer poort 80
 EXPOSE 80
