@@ -1,26 +1,14 @@
-#It will use node:19-alpine3.16 as the parent image for 
-#building the Docker image
-FROM node:19-alpine3.16
+# Gebruik de officiële nginx image als basis
+FROM nginx:latest
 
-#It will create a working directory for Docker. The Docker
-#image will be created in this working directory.
-WORKDIR /react-app
+# Verwijder de standaard index.html van nginx
+RUN rm /usr/share/nginx/html/index.html
 
-#Copy the React.js application dependencies from the 
-#package.json to the react-app working directory.
-COPY package.json .
-COPY package-lock.json .
+# Kopieer uw eigen index.html naar de juiste locatie
+COPY ./index.html /usr/share/nginx/html/index.html
 
-#install all the React.js application dependencies
-RUN npm i
+# Exposeer poort 80
+EXPOSE 80
 
-<!-- Copy the remaining React.js application folders and files from 
- the `jenkins-kubernetes-deployment` local folder to the Docker 
-react-app working directory -->
-COPY . .
-
-#Expose the React.js application container on port 3000
-EXPOSE 3000
-
-#The command to start the React.js application container
-CMD ["npm", "start"]
+# Start nginx in de voorgrond
+CMD ["nginx", "-g", "daemon off;"]
